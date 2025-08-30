@@ -29,6 +29,8 @@ func main() {
 	go func() {
 		wg.Wait()
 		close(ch)
+
+		//  here we have written the close function in here because there is only one channel having all 10 results
 	}()
 
 	for res := range ch {
