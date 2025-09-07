@@ -3,12 +3,14 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func numbers(i int, channel chan int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for val := range channel {
 		fmt.Printf("Worker %d received: %d\n", i, val)
+		time.Sleep(200 * time.Millisecond)
 	}
 }
 
